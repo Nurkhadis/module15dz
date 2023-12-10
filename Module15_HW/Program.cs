@@ -8,15 +8,20 @@ using System.Threading.Tasks;
 
 namespace Module15_HW
 {
-    //2
+
+
+    
     class MyClass
     {
         public int MyProperty1 { get; set; }
         public string MyProperty2 { get; set; }
     }
 
+    
+
     class Program
     {
+        
         static void Main()
         {
             //1
@@ -26,6 +31,8 @@ namespace Module15_HW
             {
                 Console.WriteLine(method.Name);
             }
+
+            
             //2
             MyClass myObject = new MyClass();
             myObject.MyProperty1 = 42;
@@ -37,11 +44,16 @@ namespace Module15_HW
                 Console.WriteLine($"{property.Name}: {property.GetValue(myObject)}");
             }
             string myString = "Hello, Reflection!";
+
+            
             //3
             Type stringType = typeof(string);
             MethodInfo substringMethod = stringType.GetMethod("Substring", new Type[] { typeof(int), typeof(int) });
             string result = (string)substringMethod.Invoke(myString, new object[] { 0, 5 });
             Console.WriteLine(result);
+
+
+            
             //4
             Type listType = typeof(List<>);
             ConstructorInfo[] constructors = listType.GetConstructors();
